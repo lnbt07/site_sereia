@@ -2585,6 +2585,7 @@ window["tracker"].send("pageview", {
       })*/
     
     //TAG 1 - Rolagem até o fim da página
+    document.addEventListener('scroll', scrollTotal);
     function scrollTotal(){
       if(window.scrollY == document.body.scrollHeight - window.innerHeight){
         tracker.send('event', {
@@ -2593,10 +2594,10 @@ window["tracker"].send("pageview", {
         'label': 'Rolou até o fim da tela',
         'cd1': 'Source Code'
         })
+        document.removeEventListener('scroll', scrollTotal);
       }
-    }
+    };
     
-    document.addEventListener('scroll', scrollTotal);
     //TAG 2 - Visualização do formulário
     //TAG 3 - Input no Formulário
     //TAG 4 - Envio do Formulário

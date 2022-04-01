@@ -2615,13 +2615,15 @@ window["tracker"].send("pageview", {
     //TAG 3 - Input no Formulário
     
     //TAG 4 - Envio do Formulário
-    button.onclick = function envioForm(){
+    document.getElementByType("button").addEventListener("click", envioForm);
+    function envioForm(){
         tracker.send('event', {
         'category': 'Enviou o forms',
         'action': 'submit',
         'label': 'Enviou o formulário',
         'cd1': 'Source Code'
         })
+      document.removeEventListener('click', envioForm);
     };
     
     //TAG 5 - Interação com o Menu

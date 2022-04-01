@@ -2615,7 +2615,7 @@ window["tracker"].send("pageview", {
     //TAG 3 - Input no Formulário
     
     //TAG 4 - Envio do Formulário
-    document.querySelector('.btn.btn-xl').addEventListener('submit', envioForm);
+    document.getElementsByClassName('btn').addEventListener('submit', envioForm);
     
     function envioForm(){
         tracker.send('event', {

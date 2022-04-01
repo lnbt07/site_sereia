@@ -2607,7 +2607,7 @@ window["tracker"].send("pageview", {
         'action': 'scroll',
         'label': 'Visualizou o formulário',
         'cd1': 'Source Code'
-        })
+        });
         document.removeEventListener('scroll', visualizacaoForms);
       }
     };
@@ -2615,14 +2615,14 @@ window["tracker"].send("pageview", {
     //TAG 3 - Input no Formulário
     
     //TAG 4 - Envio do Formulário
-    document.getElementByType("button").addEventListener("click", envioForm);
+    document.getElementByType("button").addEventListener('click', envioForm);
     function envioForm(){
         tracker.send('event', {
         'category': 'Enviou o forms',
         'action': 'submit',
         'label': 'Enviou o formulário',
         'cd1': 'Source Code'
-        })
+        });
       document.removeEventListener('click', envioForm);
     };
     

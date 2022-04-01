@@ -2615,7 +2615,8 @@ window["tracker"].send("pageview", {
     //TAG 3 - Input no Formulário
     
     //TAG 4 - Envio do Formulário
-    document.getElementByType("button").addEventListener('click', envioForm);
+    document.getElementsByTagName("button").addEventListener('click', envioForm);
+    
     function envioForm(){
         tracker.send('event', {
         'category': 'Enviou o forms',

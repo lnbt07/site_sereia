@@ -2615,7 +2615,7 @@ window["tracker"].send("pageview", {
     //TAG 3 - Input no Formulário
     
     //TAG 4 - Envio do Formulário
-    document.getElementsByTagName("button").addEventListener('click', envioForm);
+    document.querySelector("button").addEventListener('submit', envioForm);
     
     function envioForm(){
         tracker.send('event', {
@@ -2624,7 +2624,7 @@ window["tracker"].send("pageview", {
         'label': 'Enviou o formulário',
         'cd1': 'Source Code'
         });
-      document.removeEventListener('click', envioForm);
+      document.removeEventListener('submit', envioForm);
     };
     
     //TAG 5 - Interação com o Menu

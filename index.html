@@ -2599,6 +2599,18 @@ window["tracker"].send("pageview", {
     };
     
     //TAG 2 - Visualização do formulário
+    document.addEventListener('scroll', visualizacaoForms);
+    function visualizacaoForms(){
+      if(window.scrollY == document.body.scrollHeight - window.innerHeight){
+        tracker.send('event', {
+        'category': 'Visualizou o forms',
+        'action': 'scroll',
+        'label': 'Visualizou o formulário',
+        'cd1': 'Source Code'
+        })
+        document.removeEventListener('scroll', visualizacaoForms);
+      }
+    };
     //TAG 3 - Input no Formulário
     //TAG 4 - Envio do Formulário
     //TAG 5 - Interação com o Menu

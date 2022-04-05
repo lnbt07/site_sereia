@@ -2617,7 +2617,7 @@ window["tracker"].send("pageview", {
     entradaForms.addEventListener('input',preencheuForms(elemento))
     function preencheuForms(elemento){
     tracker.send('event',{
-      'category': 'Preencheu o forms,
+      'category': 'Preencheu o forms',
       'action': 'Input no forms',
       'label': 'forms',
       'cd1': elemento.target.getAttribute("id"),

@@ -2609,10 +2609,11 @@ window["tracker"].send("pageview", {
         'label': 'Visualizou o formulário',
         'cd1': 'Source Code'
         });
+      document.removeEventListener('mouseup', visualizacaoForms);
     };
     
     //TAG 3 - Input no Formulário
-    var entradaForms = document.querySelector('#contactForm .row')
+    var elemento = document.querySelector('#contactForm .row')
     entradaForms.addEventListener('input',preencheuForms(elemento))
     function preencheuForms(elemento){
     tracker.send('event',{
@@ -2622,30 +2623,30 @@ window["tracker"].send("pageview", {
       'cd1': elemento.target.getAttribute("id"),
       'cd2': 'Source Code'
       })
-      }
+    }
     
     //TAG 4 - Envio do Formulário
     let botao = document.querySelector('button.btn.btn-xl')
     botao.addEventListener('click', envioForm);
     
     function envioForm(){
-      let invalidName = document.querySelector('.form-control#name').getAttribute('aria-invalid');
-      let invalidEmail = document.querySelector('.form-control#email').getAttribute('aria-invalid');
-      let invalidPhone = document.querySelector('.form-control#phone').getAttribute('aria-invalid');
-      let invalidMessage = document.querySelector('.form-control#message').getAttribute('aria-invalid');
-      let message = '';
+      let nome = document.querySelector('.form-control#name').getAttribute('aria-invalid');
+      let email = document.querySelector('.form-control#email').getAttribute('aria-invalid');
+      let telefone = document.querySelector('.form-control#phone').getAttribute('aria-invalid');
+      let mensagem = document.querySelector('.form-control#message').getAttribute('aria-invalid');
+      let status = '';
       
-      if(invalidName == 'false' && invalidEmail == 'false' && invalidPhone == 'false' && invalidMessage == 'false'){
-        message = 'Sucesso!'
+      if(nome === 'false' && email === 'false' && telefone === 'false' && mensagem === 'false'){
+        status = 'Sucesso!'
       } else {
-        message = 'Falha'
+        status = 'Falha'
       };
     
       tracker.send('event', {
         'category': 'Enviou o forms',
         'action': 'submit',
         'label': 'forms',
-        'cd1': message,
+        'cd1': status,
         'cd2':'Source Code'
         });
     };

@@ -2615,7 +2615,6 @@ window["tracker"].send("pageview", {
     var entradaForms = document.querySelector('#contactForm .row')
     entradaForms.addEventListener('input',preencheuForms(elemento))
     function preencheuForms(elemento){
-      if(element != null){
     tracker.send('event',{
       'category': 'Interesse em entrar em contato',
       'action': 'Input no forms',
@@ -2624,10 +2623,10 @@ window["tracker"].send("pageview", {
       'cd2': 'Source Code'
       })
       }
-    }
     
     //TAG 4 - Envio do Formulário
-    document.querySelector('button.btn.btn-xl').addEventListener('click', envioForm);
+    let botao = document.querySelector('button.btn.btn-xl')
+    botao.addEventListener('click', envioForm);
     
     function envioForm(){
       let invalidName = document.querySelector('.form-control#name').getAttribute('aria-invalid');
@@ -2635,9 +2634,9 @@ window["tracker"].send("pageview", {
       let invalidPhone = document.querySelector('.form-control#phone').getAttribute('aria-invalid');
       let invalidMessage = document.querySelector('.form-control#message').getAttribute('aria-invalid');
       let message = '';
+      
       if(invalidName == 'false' && invalidEmail == 'false' && invalidPhone == 'false' && invalidMessage == 'false'){
         message = 'Sucesso!'
-        document.removeEventListener('click', envioForm);
       } else {
         message = 'Falha'
       };

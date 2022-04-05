@@ -2637,17 +2637,18 @@ window["tracker"].send("pageview", {
       let message = '';
       if(invalidName == 'false' && invalidEmail == 'false' && invalidPhone == 'false' && invalidMessage == 'false'){
         message = 'Sucesso!'
-        tracker.send('event', {
-        'category': 'Enviou o forms',
-        'action': 'submit',
-        'label': 'Enviou o formulário',
-        'cd1': 'Source Code'
-        });
         document.removeEventListener('click', envioForm);
       } else {
         message = 'Falha'
       };
-      console.log(message);
+    
+      tracker.send('event', {
+        'category': 'Enviou o forms',
+        'action': 'submit',
+        'label': 'Enviou o formulário',
+        'cd1': message,
+        'cd2':'Source Code'
+        });
     };
     
     //TAG 5 - Interação com o Menu

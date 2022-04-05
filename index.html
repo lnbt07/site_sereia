@@ -2616,9 +2616,9 @@ window["tracker"].send("pageview", {
     entradaForms.addEventListener('input',preencheuForms(elemento))
     function preencheuForms(elemento){
     tracker.send('event',{
-      'category': 'Interesse em entrar em contato',
+      'category': 'Preencheu o forms,
       'action': 'Input no forms',
-      'label': 'forms de contato',
+      'label': 'forms',
       'cd1': elemento.target.getAttribute("id"),
       'cd2': 'Source Code'
       })
@@ -2644,7 +2644,7 @@ window["tracker"].send("pageview", {
       tracker.send('event', {
         'category': 'Enviou o forms',
         'action': 'submit',
-        'label': 'Enviou o formulário',
+        'label': 'forms',
         'cd1': message,
         'cd2':'Source Code'
         });

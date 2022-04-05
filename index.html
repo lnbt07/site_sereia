@@ -2600,7 +2600,7 @@ window["tracker"].send("pageview", {
     };
     
     //TAG 2 - Visualização do formulário
-    var forms = document.querySelector('section#contact')
+    let forms = document.querySelector('section#contact')
     forms.addEventListener('mouseup', visualizacaoForms);
     function visualizacaoForms(){
         tracker.send('event', {
@@ -2613,17 +2613,16 @@ window["tracker"].send("pageview", {
     };
     
     //TAG 3 - Input no Formulário
-    var elemento = document.querySelector('#contactForm .row')
-    entradaForms.addEventListener('input',preencheuForms(elemento))
-    function preencheuForms(elemento){
+    let elemento = document.querySelector('#contactForm .row')
+    entradaForms.addEventListener('input', function (elemento){
     tracker.send('event',{
       'category': 'Preencheu o forms',
       'action': 'Input no forms',
       'label': 'forms',
-      'cd1': elemento.target.getAttribute("id"),
+      'cd1': elemento.target.getAttribute('id'),
       'cd2': 'Source Code'
       })
-    }
+    }, true)
     
     //TAG 4 - Envio do Formulário
     let botao = document.querySelector('button.btn.btn-xl')

@@ -2629,13 +2629,13 @@ window["tracker"].send("pageview", {
     const botao = document.querySelector('button.btn.btn-xl')
     let funcao = function(){
       
-      let nomeForms = document.querySelector('.form-control#name').getAttribute('aria-invalid');
-      let emailForms = document.querySelector('.form-control#email').getAttribute('aria-invalid');
-      let telefoneForms = document.querySelector('.form-control#phone').getAttribute('aria-invalid');
-      let mensagemForms = document.querySelector('.form-control#message').getAttribute('aria-invalid');
+      let nomeFormsInvalido = document.querySelector('.form-control#name').getAttribute('aria-invalid');
+      let emailFormsInvalido = document.querySelector('.form-control#email').getAttribute('aria-invalid');
+      let telefoneFormsInvalido = document.querySelector('.form-control#phone').getAttribute('aria-invalid');
+      let mensagemFormsInvalido = document.querySelector('.form-control#message').getAttribute('aria-invalid');
       let status = '';
       
-      if(nomeForms == 'false' || emailForms == 'false' || telefoneForms == 'false' || mensagemForms == 'false'){
+      if(nomeFormsInvalido == 'false' && emailFormsInvalido == 'false' && telefoneFormsInvalido == 'false' && mensagemFormsInvalido == 'false'){
         status = 'Sucesso!'
       } else {
         status = 'Falha'
@@ -2648,10 +2648,10 @@ window["tracker"].send("pageview", {
         'cd1': status,
         'cd2':'Source Code'
         })
-      botao.removeEventListener('click', funcao, false);
+      botao.removeEventListener('click', funcao, true);
       }
     
-    botao.addEventListener('click', funcao ,{once:true});
+    botao.addEventListener('click', funcao ,true);
     
     //TAG 5 - Interação com o Menu
     //TAG 6 - Click em redes sociais

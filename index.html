@@ -2654,8 +2654,41 @@ window["tracker"].send("pageview", {
     botao.addEventListener('click', funcao, {once:true});
     
     //TAG 5 - Interação com o Menu
+    let navbar = document.querySelector('.nav.navbar-nav.navbar-right')
+    navbar.addEventListener('click', function(){
+     tracker.send('event', {
+        'category': 'Interagiu com o navbar',
+        'action': 'click',
+        'label': 'navbar',
+        'cd1': 'Source Code'
+        })
+    })
+    
     //TAG 6 - Click em redes sociais
+    
     //TAG 7 - Tempo de Visualização do Site
+    var aberturaPagina;
+    $(window).ready(function () {
+      aberturaPagina = new Date().getTime();
+    });
+    $(window).on('beforeunload', function (){
+      var fechoPagina = new Date().getTime();
+      var tempoAberto = (fechoPagina - aberturaPagina) / 1000;
+      var tempo = '';
+      if(tempoAberto >= 60000){
+        tempo = '1 minuto ou mais';
+      } else {
+        tempo = 'Menos de 1 minuto';
+      }
+      tracker.send('event', {
+        'category': 'Tempo na tela',
+        'action': 'time',
+        'label': 'window',
+        'cd1': tempo,
+        'cd2': 'Source Code'
+        })
+      });
+    
     //TAG 8 - Pop-up
     
   </script>

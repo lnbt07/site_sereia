@@ -2601,9 +2601,8 @@ window["tracker"].send("pageview", {
     
     //TAG 2 - Visualização do formulário
     let forms = document.querySelector('section#contact')
-    forms.addEventListener('scroll', visualizacaoForms);
+    forms.addEventListener('mouseup', visualizacaoForms);
     function visualizacaoForms(){
-      if(window.scrollY == document.body.scrollHeight - window.innerHeight){
         console.log('visualizou o forms');
         tracker.send('event', {
         'category': 'Visualizou o forms',
@@ -2611,13 +2610,11 @@ window["tracker"].send("pageview", {
         'label': 'Visualizou o formulário',
         'cd1': 'Source Code'
         });
-        document.removeEventListener('scroll', visualizacaoForms);
-      }
     };
     
     //TAG 3 - Input no Formulário
     let elemento = document.querySelector('#contactForm .row')
-    entradaForms.addEventListener('input', function(elemento) {
+    entradaForms.addEventListener('input', function(elemento){
     tracker.send('event',{
       'category': 'Preencheu o forms',
       'action': 'Input no forms',
@@ -2628,7 +2625,7 @@ window["tracker"].send("pageview", {
     }, {once:true})
     
     //TAG 4 - Envio do Formulário
-    let botao = document.querySelector('button.btn.btn-xl')
+    const botao = document.querySelector('button.btn.btn-xl')
     botao.addEventListener('click', function(){
       
       let nomeForms = document.querySelector('.form-control#name').getAttribute('aria-invalid');
@@ -2650,7 +2647,7 @@ window["tracker"].send("pageview", {
         'cd1': status,
         'cd2':'Source Code'
         }
-    }, {once:true}
+      }, {once:true}
     );
     
     //TAG 5 - Interação com o Menu

@@ -2655,12 +2655,13 @@ window["tracker"].send("pageview", {
     
     //TAG 5 - Interação com o Menu
     let navbar = document.querySelector('.nav.navbar-nav.navbar-right')
-    navbar.addEventListener('click', function(){
+    navbar.addEventListener('click', function(elemento){
      tracker.send('event', {
         'category': 'Interagiu com o navbar',
         'action': 'click',
         'label': 'navbar',
-        'cd1': 'Source Code'
+        'cd1': elemento.target.getAttribute('href'),
+        'cd2': 'Source Code'
         })
     })
     

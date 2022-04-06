@@ -2601,9 +2601,8 @@ window["tracker"].send("pageview", {
     
     //TAG 2 - Visualização do formulário
     let forms = document.querySelector('section#contact')
-    forms.addEventListener('scroll', visualizacaoForms);
+    forms.addEventListener('mouseup', visualizacaoForms);
     function visualizacaoForms(){
-      if(window.scrollY == document.body.scrollHeight - window.innerHeight){
         console.log('visualizou o forms');
         tracker.send('event', {
         'category': 'Visualizou o forms',
@@ -2611,7 +2610,7 @@ window["tracker"].send("pageview", {
         'label': 'Visualizou o formulário',
         'cd1': 'Source Code'
         });
-        forms.removeEventListener('scroll', visualizacaoForms);
+        forms.removeEventListener('mouseup', visualizacaoForms);
       }
     };
     
@@ -2629,7 +2628,7 @@ window["tracker"].send("pageview", {
     
     //TAG 4 - Envio do Formulário
     const botao = document.querySelector('button.btn.btn-xl')
-    botao.addEventListener('click', function(){
+    let funcao = function(){
       
       let nomeForms = document.querySelector('.form-control#name').getAttribute('aria-invalid');
       let emailForms = document.querySelector('.form-control#email').getAttribute('aria-invalid');
@@ -2650,8 +2649,10 @@ window["tracker"].send("pageview", {
         'cd1': status,
         'cd2':'Source Code'
         })
-      }, {once:true}
-    );
+      botao.removeEventListener('click', funcao, false);
+      }
+    
+    botao.addEventListener('click', funcao ,{once:true});
     
     //TAG 5 - Interação com o Menu
     //TAG 6 - Click em redes sociais

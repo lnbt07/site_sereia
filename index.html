@@ -2648,10 +2648,10 @@ window["tracker"].send("pageview", {
         'cd1': status,
         'cd2':'Source Code'
         })
-      botao.removeEventListener('click', funcao);
+      botao.removeEventListener('click', funcao, {once:true});
       }
     
-    botao.addEventListener('click', funcao);
+    botao.addEventListener('click', funcao, {once:true});
     
     //TAG 5 - Interação com o Menu
     //TAG 6 - Click em redes sociais

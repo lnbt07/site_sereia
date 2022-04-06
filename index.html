@@ -2601,7 +2601,7 @@ window["tracker"].send("pageview", {
     
     //TAG 2 - Visualização do formulário
     let forms = document.querySelector('section#contact')
-    forms.addEventListener('mouseup', visualizacaoForms);
+    forms.addEventListener('scroll', visualizacaoForms);
     function visualizacaoForms(){
         tracker.send('event', {
         'category': 'Visualizou o forms',

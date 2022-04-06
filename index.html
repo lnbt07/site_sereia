@@ -2602,15 +2602,17 @@ window["tracker"].send("pageview", {
     //TAG 2 - Visualização do formulário
     let forms = document.querySelector('section#contact')
     forms.addEventListener('scroll', visualizacaoForms);
-    console.log('visualizou o forms');
     function visualizacaoForms(){
+      if(window.scrollY == document.body.scrollHeight - window.innerHeight){
+        console.log('visualizou o forms');
         tracker.send('event', {
         'category': 'Visualizou o forms',
         'action': 'scroll',
         'label': 'Visualizou o formulário',
         'cd1': 'Source Code'
         });
-      document.removeEventListener('scroll', visualizacaoForms);
+        document.removeEventListener('scroll', visualizacaoForms);
+      }
     };
     
     //TAG 3 - Input no Formulário
@@ -2627,16 +2629,15 @@ window["tracker"].send("pageview", {
     
     //TAG 4 - Envio do Formulário
     let botao = document.querySelector('button.btn.btn-xl')
-    botao.addEventListener('click', envioForm, {once:true});
-    
-    function envioForm(){
-      let nome = document.querySelector('.form-control#name').getAttribute('aria-invalid');
-      let email = document.querySelector('.form-control#email').getAttribute('aria-invalid');
-      let telefone = document.querySelector('.form-control#phone').getAttribute('aria-invalid');
-      let mensagem = document.querySelector('.form-control#message').getAttribute('aria-invalid');
+    botao.addEventListener('click', function(){
+      
+      let nomeForms = document.querySelector('.form-control#name').getAttribute('aria-invalid');
+      let emailForms = document.querySelector('.form-control#email').getAttribute('aria-invalid');
+      let telefoneForms = document.querySelector('.form-control#phone').getAttribute('aria-invalid');
+      let mensagemForms = document.querySelector('.form-control#message').getAttribute('aria-invalid');
       let status = '';
       
-      if(nome === 'false' && email === 'false' && telefone === 'false' && mensagem === 'false'){
+      if(nomeForms == 'false' && emailForms == 'false' && telefoneForms == 'false' && mensagemForms == 'false'){
         status = 'Sucesso!'
       } else {
         status = 'Falha'
@@ -2648,8 +2649,9 @@ window["tracker"].send("pageview", {
         'label': 'forms',
         'cd1': status,
         'cd2':'Source Code'
-        });
-    };
+        }
+    }, {once:true}
+    );
     
     //TAG 5 - Interação com o Menu
     //TAG 6 - Click em redes sociais

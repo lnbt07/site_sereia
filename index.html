@@ -2637,7 +2637,7 @@ window["tracker"].send("pageview", {
       let mensagemForms = document.querySelector('.form-control#message').getAttribute('aria-invalid');
       let status = '';
       
-      if(nomeForms == 'false' && emailForms == 'false' && telefoneForms == 'false' && mensagemForms == 'false'){
+      if(nomeForms == 'false' || emailForms == 'false' || telefoneForms == 'false' || mensagemForms == 'false'){
         status = 'Sucesso!'
       } else {
         status = 'Falha'

@@ -2623,11 +2623,11 @@ window["tracker"].send("pageview", {
       'cd1': elemento.target.getAttribute('id'),
       'cd2': 'Source Code'
       })
-    }, true)
+    }, {once:true})
     
     //TAG 4 - Envio do Formulário
     let botao = document.querySelector('button.btn.btn-xl')
-    botao.addEventListener('click', envioForm);
+    botao.addEventListener('click', envioForm, {once:true});
     
     function envioForm(){
       let nome = document.querySelector('.form-control#name').getAttribute('aria-invalid');

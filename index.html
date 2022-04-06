@@ -2602,6 +2602,7 @@ window["tracker"].send("pageview", {
     //TAG 2 - Visualização do formulário
     let forms = document.querySelector('section#contact')
     forms.addEventListener('scroll', visualizacaoForms);
+    console.log('visualizou o forms');
     function visualizacaoForms(){
         tracker.send('event', {
         'category': 'Visualizou o forms',
@@ -2609,7 +2610,7 @@ window["tracker"].send("pageview", {
         'label': 'Visualizou o formulário',
         'cd1': 'Source Code'
         });
-      document.removeEventListener('mouseup', visualizacaoForms);
+      document.removeEventListener('scroll', visualizacaoForms);
     };
     
     //TAG 3 - Input no Formulário

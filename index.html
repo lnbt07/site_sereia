@@ -2659,7 +2659,7 @@ window["tracker"].send("pageview", {
         'category': 'Interagiu com o navbar',
         'action': 'click',
         'label': 'navbar',
-        'cd1': elemento.getElementsByTagName('a').getAttribute('href'),
+        'cd1': elemento.target.textContent,
         'cd2': 'Source Code'
         })
     })

@@ -2690,6 +2690,14 @@ window["tracker"].send("pageview", {
       });
     
     //TAG 8 - Pop-up
+    document.getElementById("call-me-baby").addEventListener('transitionend', function () {
+      tracker.send('event', {
+        'category' : 'Pop-up apareceu',
+        'action':'pop-up',
+        'label': 'Pop-up não restringido',
+        'cd1':'Source Code'
+      })
+    })
     
   </script>
 

@@ -2665,6 +2665,30 @@ window["tracker"].send("pageview", {
     })
     
     //TAG 6 - Click em redes sociais
+      var redesSociais = document.querySelectorAll('.list-inline.social-buttons');
+      redesSociais.forEach(item => {
+          item.addEventListener('click', (e) => {
+            if(e.target.tagName === 'A' || e.target.tagName === 'I') {
+              var lugar = 'Dev';
+              var tipoMIdia = '';
+              if (item === redesSociais[3]) {lugar = 'Site'};
+              var tagTipo = e.target.querySelector('i');
+              if (tagTipo === null) {
+                  tipoMIdia = e.target.getAttribute("class");
+              } else {
+                  tipoMIdia = e.target.querySelector('i').getAttribute("class");
+              }
+                tracker.send('event', {
+                    'category': 'Redes Sociais',
+                    'action': 'click',
+                    'label': 'Clicou nas redes sociais',
+                    'cd1': 'Source Code',
+                    'cd2': lugar,
+                    'cd3': tipoMIdia.replace("fa fa-", "")
+                });
+              } else {}
+      })
+    }) 
     
     //TAG 7 - Tempo de Visualização do Site
     var aberturaPagina;
